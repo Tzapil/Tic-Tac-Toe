@@ -1,0 +1,138 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 70px;
+  /* Margin top by header height */
+  margin-top: 80px;
+}
+
+.logo {
+  margin-top: -5px;
+}
+
+#start {
+  margin-right: 10px;
+}
+
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 61px;
+}
+
+.footer-content {
+  border-top: 1px solid lightgray;
+}
+
+.game {
+  margin-bottom: 10px;
+}
+
+.grid {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.grid-row {
+  height: 33%;
+  display: flex;
+}
+
+.grid-cell {
+  width: 33%;
+  height: 100%;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.grid-cell:hover {
+  background-color: #fafafa;
+}
+.grid-cell .circle, .grid-cell .cross {
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  right: 15%;
+  bottom: 15%;
+}
+
+.circle {
+  border: 10px solid #17339b;
+  border-radius: 50%;
+}
+.cross:before {
+  content: "";
+  transform: rotate(-45deg);
+  background-color: #af2424;
+  border-radius: 4px;
+  display: block;
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 45%;
+}
+
+.cross:after {
+  content: "";
+  transform: rotate(45deg);
+  background-color: #af2424;
+  border-radius: 4px;
+  display: block;
+  width: 10px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 45%;
+}
+
+.left {
+  border-right: 2px solid lightgray;
+}
+
+.right {
+  border-left: 2px solid lightgray;
+}
+
+.top {
+  border-bottom: 2px solid lightgray;
+}
+
+.bottom {
+  border-top: 2px solid lightgray;
+}
+
+@media (min-width: 500px) {
+  .grid {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+.waiting, .message {
+  text-align: center;
+}
+
+.inline {
+  position: relative;
+  top: -2px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.inline.cross:before, .inline.cross:after {
+  width: 5px;
+}
+
+.inline.circle {
+  border-width: 5px;
+}

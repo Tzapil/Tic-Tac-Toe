@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Tic Tac Toe</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css" rel="stylesheet">
+
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header pull-left">
+          <a class="navbar-brand" href="#"><img class="logo" src="img/logo.png" alt="Tic Tac Toe" height=30></a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row game">
+        <div class="col-xs-12">
+          <div class="grid">
+            <div class="top grid-row">
+              <div class="left grid-cell" data-x="0" data-y="0"></div>
+              <div class="center grid-cell" data-x="1" data-y="0"></div>
+              <div class="right grid-cell" data-x="2" data-y="0"></div>
+            </div>
+            <div class="middle grid-row">
+              <div class="left grid-cell" data-x="0" data-y="1"></div>
+              <div class="center grid-cell" data-x="1" data-y="1"></div>
+              <div class="right grid-cell" data-x="2" data-y="1"></div>
+            </div>
+            <div class="bottom grid-row">
+              <div class="left grid-cell" data-x="0" data-y="2"></div>
+              <div class="center grid-cell" data-x="1" data-y="2"></div>
+              <div class="right grid-cell" data-x="2" data-y="2"></div>
+            </div>
+          </div>
+          <!-- <canvas id="canvas" width="600" height="600">
+            Sorry, your browser doesn't support the &lt;canvas&gt; element.
+          </canvas> -->
+        </div>
+      </div>
+      <div class="row">
+        <h3 class="waiting">
+          <i class='fa fa-spinner fa-spin'></i>
+          Waiting for other players...
+        </h3>
+        <h3 class="message"></h3>
+      </div>
+    </div>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="footer-content">
+                      <p style="padding:10px;"></p>
+                      <p align="center">© Copyright 2016 Tzapil</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
