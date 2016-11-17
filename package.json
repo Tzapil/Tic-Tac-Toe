@@ -1,7 +1,16 @@
 {
-  "name": "tic tac toe",
+  "name": "TicTacToe",
+  "version": "0.1.0",
+  "description": "A simple Tic Tac Toe app",
+  "main": "app.js",
   "dependencies": {
     "express": "*",
-    "express-ws": "*"
-  }
+    "express-ws": "*",
+    "log4js": "*"
+  },
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "du.kulaevskiy",
+  "license": "MIT"
 }

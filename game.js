@@ -1,3 +1,6 @@
+var log4js = require('log4js');
+var logger = log4js.getLogger('main-log');
+
 function Player (ws, type, game, active) {
   this.ws = ws;
   this.type = type;
@@ -16,6 +19,7 @@ Player.prototype.send = function (message) {
 }
 
 Player.prototype.close = function (result) {
+  logger.info('Player stop. Result:', result);
   this.send(JSON.stringify({
     event: 'over',
     result: result
@@ -35,6 +39,7 @@ Player.prototype.move = function (t, x, y) {
   }));
 }
 Player.prototype.start = function () {
+  logger.info('Player started', this.type);
   this.send(JSON.stringify({
     event: 'start',
     type: this.type
@@ -42,18 +47,22 @@ Player.prototype.start = function () {
 
   var self = this;
   this.ws.on('message', function (msg) {
+    logger.info('Player message', msg);
     if (self.active) {
       var
         message = JSON.parse(msg),
         x = message.x,
         y = message.y;
+      logger.info('Player move', self.type, x, y);
       self.game.move(self.type, x, y);
     }
   });
   this.ws.on('close', function (msg) {
+    logger.info('Player socket closed', self.type);
     self.game.playerLeave(self);
   });
   this.ws.on('error', function (msg) {
+    logger.error('Player socket error', self.type);
     self.game.playerLeave(self);
   });
 }
@@ -74,6 +83,7 @@ Game.prototype.addPlayers = function (p) {
 }
 
 Game.prototype.start = function () {
+  logger.info('Game started');
   for (var i = 0; i < this.players.length; i++) {
     this.players[i].start();
   }
@@ -84,6 +94,7 @@ Game.prototype.playerLeave = function (player) {
 }
 
 Game.prototype.close = function (result) {
+  logger.info('Game end. Result:' + result);
   for (var i = 0; i < this.players.length; i++) {
     this.players[i].close(result);
   }
@@ -133,6 +144,7 @@ Game.prototype.move = function (t, x, y) {
 }
 
 function create(ws1, ws2) {
+  logger.info('Create new game');
   var game = new Game();
   game.addPlayers([new Player(ws1, "cross", game, true), new Player(ws2, "circle", game)]);
   return game;

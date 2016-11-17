@@ -1,3 +1,8 @@
+// LOGS
+var log4js = require('log4js');
+log4js.configure('log_config.json');
+var logger = log4js.getLogger('main-log');
+
 var express = require('express');
 var app = express();
 var expressWs = require('express-ws')(app);
@@ -13,6 +18,7 @@ function filter_connections (a) {
 // WS
 var connections = [];
 app.ws('/ws', function(ws, req) {
+  logger.info('New connection!');
   connections.push(ws);
 
   connections = filter_connections(connections);
@@ -34,5 +40,5 @@ app.get('/', function (req, res) {
 
 // Start
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Tic Tac Toe listening on port 3000!');
+  logger.info('Tic Tac Toe listening on port 3000!');
 });
