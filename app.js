@@ -29,6 +29,7 @@ app.ws('/ws', function(ws, req) {
 });
 
 // Static
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/js', express.static(__dirname + '/js'));
 app.use('/img', express.static(__dirname + '/img'));

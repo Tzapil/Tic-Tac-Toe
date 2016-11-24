@@ -1,0 +1,15 @@
+{
+  "name": "TicTacToe",
+  "description": "A simple Tic Tac Toe app",
+  "main": "app.js",
+  "authors": [
+    "du.kulaevskiy"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Tzapil/Tic-Tac-Toe",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "bootstrap3-dialog": "bootstrap-dialog#^1.35.3"
+  }
+}
